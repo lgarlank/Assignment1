@@ -16,7 +16,7 @@ import com.training.pom.FourthTC;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class FourthTestcase {
+public class RETC_039 {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -60,15 +60,16 @@ public class FourthTestcase {
 		FourthTC.Slug("launch");
 		FourthTC.Description("New Launches of villas, apartments, flats");
 		FourthTC.addnewcategory();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		FourthTC.AllPosts();
-		Thread.sleep(2000);
+		FourthTC.AddNew();
+		Thread.sleep(4000);
 		screenShot.captureScreenShot("Scenario1");	
 		FourthTC.posttitle("New Launches");
 		FourthTC.content(" New Launch in Home");
 		FourthTC.checkBox();
 		FourthTC.Publish();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		screenShot.captureScreenShot("FourthTC");
 
 	}

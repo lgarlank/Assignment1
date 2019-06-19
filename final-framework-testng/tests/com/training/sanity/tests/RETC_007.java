@@ -1,6 +1,5 @@
 package com.training.sanity.tests;
 
-import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -12,20 +11,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.FirstTC;
 import com.training.pom.LoginPOM;
-import com.training.pom.SecondTC;
-import com.training.pom.ThirdTC;
+import com.training.pom.FirstTC;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class ThirdTestCase {
+public class RETC_007 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
 	private FirstTC FirstTC;
-	private SecondTC SecondTC;
-	private ThirdTC ThirdTC;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -39,7 +34,7 @@ public class ThirdTestCase {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		ThirdTC = new ThirdTC(driver); 
+		FirstTC = new FirstTC(driver); 
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -52,12 +47,14 @@ public class ThirdTestCase {
 		driver.quit();
 	}
 	@Test
-	public void ThirdTestcase() throws AWTException, InterruptedException {
-		ThirdTC.ApartmentTab();
-		ThirdTC.address("Electronic City");
-		ThirdTC.propertytype();
-		ThirdTC.taxregion();
-		ThirdTC.Search();
-		screenShot.captureScreenShot("ThirdTc");
+	public void validLoginTest() {
+		FirstTC.ApartmentTab();
+		FirstTC.DonecQs();
+		FirstTC.YourName("manzoor");
+		FirstTC.YourEmail("manzoor@gmail.com");
+		FirstTC.yoursubject("apartments");
+		FirstTC.yourmessage("looking for an apartments");
+		FirstTC.Send();
+		screenShot.captureScreenShot("First");
 	}
 }

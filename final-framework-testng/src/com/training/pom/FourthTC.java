@@ -1,11 +1,14 @@
 package com.training.pom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FourthTC {
 private WebDriver driver; 
@@ -45,12 +48,22 @@ private WebDriver driver;
 
 	@FindBy(id="in-category-427")
 	private WebElement checkBox; 
+	
+	@FindBy(id="in-category-430")
+	private WebElement NewLaunchescheckBox; 
 
 	@FindBy(id="publish")
 	private WebElement Publish; 
 	
+	@FindBy(xpath="//*[@id='message']/p/a")
+	private WebElement ViewPost; 
+	
+	
 	@FindBy(xpath ="//*[@class='wpcf7-form-control wpcf7-submit']")
 	private WebElement Send; 
+	
+	@FindBy(xpath="//*[@id='post-3595']/td[1]/strong/a")
+	private WebElement OpenPost;
 	
 	public void Categories(){
 		Actions mh = new Actions(driver);
@@ -79,8 +92,12 @@ private WebDriver driver;
 		driver.findElement(By.xpath("//*[@id='menu-posts']/ul/li[2]/a")).click();
 	}
 	
-	public void AddNew() {
+	public void AddNew() throws InterruptedException {
 		this.AddNew.click();
+		/*((JavascriptExecutor)driver).executeScript("arguments[0].click();", this.AddNew);
+		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+	    wait.until(ExpectedConditions.elementToBeClickable(this.AddNew));*/
 	}
 	public void posttitle(String AddNew){
 		this.posttitle.sendKeys(AddNew);
@@ -93,8 +110,21 @@ private WebDriver driver;
 	public void checkBox(){
 		this.checkBox.click();
 	}
+	
+	public void NewLaunchescheckBox(){
+		this.NewLaunchescheckBox.click();
+	}
+	
 	public void Publish(){
 		this.Publish.click();
+	}
+	
+	public void ViewPost(){
+		this.ViewPost.click();
+	}
+	
+	public void openpost(){
+		this.OpenPost.click();
 	}
 	
 }

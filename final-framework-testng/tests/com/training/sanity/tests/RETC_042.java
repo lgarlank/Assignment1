@@ -11,18 +11,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.FirstTC;
-import com.training.pom.SecondTC;
+import com.training.pom.FourthTC;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class SecondTestCase {
+public class RETC_042 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	private FirstTC FirstTC;
-	private SecondTC SecondTC;
+	private FourthTC FourthTC;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -36,8 +34,8 @@ public class SecondTestCase {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		SecondTC = new SecondTC(driver); 
-		FirstTC = new FirstTC(driver); 
+		loginPOM = new LoginPOM(driver); 
+		FourthTC = new FourthTC(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -50,15 +48,23 @@ public class SecondTestCase {
 		driver.quit();
 	}
 	@Test
-	public void SecondTestCse() throws InterruptedException {
-		FirstTC.ApartmentTab();
-		FirstTC.DonecQs();
-		SecondTC.amount("400000");
-		SecondTC.downpayment("20000");
-		SecondTC.loanTerm("20");
-		SecondTC.interestrate("7.25");
-		SecondTC.Calculate();
-		Thread.sleep(2000);
-		screenShot.captureScreenShot("SecondTC");
+	public void SeventhTestCaseExec() throws InterruptedException {
+		loginPOM.clickLogin();
+		loginPOM.sendUserName("admin");
+		loginPOM.sendPassword("admin@123");
+		loginPOM.clickLoginBtn(); 
+		Thread.sleep(10000);
+		FourthTC.AllPosts();
+		FourthTC.AddNew();
+		Thread.sleep(6000);
+		FourthTC.posttitle("New Launches");
+		FourthTC.content(" New Launch in Home");
+		FourthTC.NewLaunchescheckBox();
+		FourthTC.Publish();
+		Thread.sleep(10000);
+		FourthTC.AllPosts();
+		FourthTC.ViewPost();
+		Thread.sleep(10000);
+		screenShot.captureScreenShot("RETC_042_FinalScreenShot");
 	}
 }
