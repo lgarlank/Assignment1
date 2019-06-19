@@ -5,6 +5,13 @@
    <test name = "Sample test">
       <classes>
          <class name = "com.training.sanity.tests.LoginTests" />
+         <class name = "com.training.sanity.tests.RETC_007" />
+         <class name = "com.training.sanity.tests.RETC_008" />
+         <class name = "com.training.sanity.tests.RETC_009" />
+         <class name = "com.training.sanity.tests.RETC_039" />
+         <class name = "com.training.sanity.tests.RETC_040" />
+         <class name = "com.training.sanity.tests.RETC_041" />
+         <class name = "com.training.sanity.tests.RETC_042" />
       </classes>
    </test>
 </suite>	

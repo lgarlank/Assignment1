@@ -47,7 +47,7 @@ public class RETC_007 {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
+	public void FirstTestcase() {
 		FirstTC.ApartmentTab();
 		FirstTC.DonecQs();
 		FirstTC.YourName("manzoor");
