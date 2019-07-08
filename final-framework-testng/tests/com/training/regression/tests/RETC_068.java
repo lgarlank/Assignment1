@@ -15,14 +15,12 @@ import com.training.generics.GenericMethods;
 import com.training.generics.ScreenShot;
 import com.training.pom.DbTC;
 import com.training.pom.SecondTC;
-import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 public class RETC_068 {
 	private WebDriver driver;
 	private String baseUrl;
-	private LoginPOM loginPOM;
 	private DbTC DbTC;
 	private SecondTC SecondTC;
 	private static Properties properties;
@@ -40,7 +38,6 @@ public class RETC_068 {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver);
 		DbTC = new DbTC(driver);
 		SecondTC = new SecondTC(driver);
 		baseUrl = properties.getProperty("baseURL");

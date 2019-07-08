@@ -49,6 +49,7 @@ public class RETC_069 {
 		Thread.sleep(1000);
 		driver.quit();
 	}
+	
 	@Test
 	public void RETC069() throws InterruptedException {
 		FirstTC.ApartmentTab();
