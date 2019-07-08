@@ -28,6 +28,10 @@ public class LoadDBDetails {
 			// getting the user name if not present (by default - root ) 
 			dbBean.setUserName(properties.getProperty("username", "root"));
 			dbBean.setPassword(properties.getProperty("password"));
+			dbBean.setname(properties.getProperty("name"));
+			dbBean.setemail(properties.getProperty("email"));
+			dbBean.setsubject(properties.getProperty("subject"));
+			dbBean.setmessage(properties.getProperty("message"));
 			
 			return dbBean; 
 			
